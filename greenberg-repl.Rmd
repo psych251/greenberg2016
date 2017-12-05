@@ -21,72 +21,64 @@ library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
 library(readxl) # import excel files
 library(CARPSreports) # custom report functions
 ```
+
 #Introduction
 
-[No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
+This paper looked at how making opportunity cost explicit at the time of choice affects evaluations of focal options ("available" options) and the opportunity cost itself. The study entailed surveying 101 Mechanical Turk workers about how much (7 point Likert) they like each of 11 offers, one of which was the "opportunity cost", both before (pre-choice) and after (post-choice) a "choice" intervention. The "choice" intervention involved asking participants in an "implicit" group whether-or-not they would choose to accept a particular offer, while asking participants in an "explicit" group whether they would choose to accept a particular offer or decline the offer and accept the "opportunity cost" offer instead (i.e. in our case a $100 VISA card). 
 
-This paper looked at how making opportunity cost explicit at time of choice affects evaluations of focal options and opportunity costs (i.e. how spread across choices is affected). The study entailed surveying 101 Mechanical Turk workers about how much (7 point Likert) they like each of 11 offers, one of which was the "opportunity cost", both before (pre-choice) and after (post-choice) a "choice" intervention. The "choice" intervention involved asking participants in an "implicit" group whether-or-not they would choose to accept a particular offer, while asking participants in an "explicit" group whether they would choose to accept a particular offer or decline the offer and accept the "opportunity cost" offer instead (i.e. in our case a $100 VISA card). 
+For the evaluation, the researchers looked at how "spread" of preferences across choices is affected by making opportunity cost explicit. The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. Spread could be negative or positive, and just represented how far away mean focal option evaluation was from the evaluation of opportunity cost. Based on this definition, one may expect that a participant in the explicit condition who selects many focal options explicitly over the $100 VISA card, would in a post-choice survey evaluate their chosen focal options as even further away from the base option than in their pre-choice survey. To test this, the researchers hence controlled for pre-choice spread and used proportion of focal options chosen and condition as well as their interaction to predict post-choice spread. The interaction of condition and proportion of focal options chosen indeed was a significant predictor of post-choice spread (p=0.023). Moreover, they found that when opportunity costs were explicit, postchoice spread increased with the proportion of focal options chosen (p=0.006), but no significant relationship when the condition was implicit. 
 
-The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. The interaction of condition and proportion of focal options chosen was a significant predictor of post-choice spread (p=0.023). The authors regressed post-choice spread on condition and proportion of focal offers chosen and their interaction, controlling for pre-choice spread. They found that when opportunity costs were explicit, postchoice spread increased with the proportion of focal options chosen (p=0.006), but no significant relationship when the condition was implicit. We found ... 
+We found ... 
 
 #Methods
 
 Here is a link to the current working experiment: https://stanforduniversity.qualtrics.com/jfe/form/SV_4OWrURMHT8ffmHr
 
 ###Power Analysis
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
-	
-Based on the first 4 links from https://www.google.com/search?q=effect+size+linear+regression&oq=effect+size+linear+regression&aqs=chrome.0.69i59l2j0l4.4582j0j4&sourceid=chrome&ie=UTF-8 as well as  https://www.statmethods.net/stats/power.html, it seemed like R^2 (population squared multiple correlation) is the effect size of a multiple linear regression. After contacting the authors, we were told that observed R^2 for the full model was 0.5621. Adjusted R^2 for the full model was 0.5439. Full model test was F(4, 96) = 30.81, p < .001. Given the sample size of 101, the 3 predictors (1 of which was a tested predictor -- choice), and the pre-specified significance level of alpha err prob = 0.05, we found that the post-hoc power of the experiment was 0.99.
+Based on the first 4 links from https://www.google.com/search?q=effect+size+linear+regression&oq=effect+size+linear+regression&aqs=chrome.0.69i59l2j0l4.4582j0j4&sourceid=chrome&ie=UTF-8 as well as  https://www.statmethods.net/stats/power.html, R^2 (population squared multiple correlation) is the effect size of a multiple linear regression. After contacting the authors, we were told that observed R^2 for the full model was 0.5621. Adjusted R^2 for the full model was 0.5439. Full model test was F(4, 96) = 30.81, p < .001. Given the sample size of 101, the 3 predictors (1 of which was a tested predictor -- choice), and the pre-specified significance level of alpha err prob = 0.05, we found that the post-hoc power of the experiment was 0.99.
 
 For the model to detect the effect size of 0.5621, with an alpha err prob = 0.05, we found 10 samples were required to achieve 80% power, 12 samples for 90% power, and 13 samples for 95% power. We used G*Power. 
 
 ###Planned Sample
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
-
-Because of the sufficiently large effect size, we planned to use fewer samples than the experimenters did for sake of cost -- 35 participants. We opted for this very high fidelity replication because the task was not very long (only 5 minutes based on our pilot). Like the original experimenters, we sampled US-only mechanical turk workers and applied no other preselection rules. We thew out samples that failed the attention check and ensured that the difference in comprehension check performance between the two groups was not significant.
+Because of the sufficiently large effect size, we planned to use fewer samples than the experimenters did for sake of cost -- 35 participants. We opted for this very high fidelity replication because the task was not very long (only 5 minutes based on our pilot). Like the original experimenters, we sampled US-only mechanical turk workers (80%+ approval rating) and applied no other preselection rules. We thew out samples that failed the attention check and ensured that the difference in comprehension check performance between the two groups was not significant.
 
 ###Materials & Procedure
-"We assessed prechoice evaluations by asking participants to imagine that they were eligible to receive different independent offers as part of a marketing promotion (e.g., “2 nights in a luxury hotel”). Participants used a 7-point scale (1 = not at all, 7 = very much) to rate how much they would like each of 11 such offers. One of these (a $100 Visa gift card) would be the option that represented the opportunity cost at the time of choice and was either the first offer or the last offer to be evaluated; order was counterbalanced across participants.
-
+> We assessed prechoice evaluations by asking participants to imagine that they were eligible to receive different independent offers as part of a marketing promotion (e.g., “2 nights in a luxury hotel”). Participants used a 7-point scale (1 = not at all, 7 = very much) to rate how much they would like each of 11 such offers. One of these (a $100 Visa gift card) would be the option that represented the opportunity cost at the time of choice and was either the first offer or the last offer to be evaluated; order was counterbalanced across participants.
 After completing the prechoice evaluations, participants were asked to imagine that they had accumulated 50,000 airline miles and that their miles would expire soon. If they did not spend their miles before the miles expired, the airline would send them a $100 Visa gift card. Participants decided whether to spend their airline miles on each of 10 focal offers (e.g., “Spend my miles on 2 nights in a luxury hotel”).2 Each option was presented as an independent decision, and participants were instructed to treat each decision as though it were their only opportunity to spend their miles before they expired. As a result, the 10 focal offers competed not with one another but only with the opportunity cost (i.e., the $100 Visa gift card).
-
 Participants assigned to the implicit condition made choices between accepting the focal options (e.g., “Spend my miles on 2 nights in a luxury hotel”) or rejecting the focal options (e.g., “Do not spend my miles on 2 nights in a luxury hotel”); this frame made opportunity costs implicit. Participants assigned to the explicit condition made choices between accepting the focal options or rejecting the focal options in favor of the explicit opportunity cost instead (e.g., “Do not spend my miles on 2 nights in a luxury hotel and take the $100 Visa gift card instead”; Frederick et al., 2009). The two frames are formally equivalent.
-
 Postchoice evaluations were assessed by asking par- ticipants again to rate the desirability of each of the 11 prechoice offers, using a method identical to that used in the prechoice evaluations. The order in which the oppor- tunity cost was presented was counterbalanced. At the top of the survey screen, participants saw the full list of 10 choices they had made (e.g., “Given the choice of: [focal option], or [nonfocal option], you chose: [chosen option]”). The wording was consistent with the manipu- lation: The description of the nonfocal option included the phrase “and take the $100 Visa gift card instead” only for participants in the explicit condition.
-
 Finally, participants reported what they thought would happen to their miles if they decided not to spend them, completed an attention check, and reported their sex and age."
 
 Our Materials and Procedure were identical to the authors', quoted above.
 
 ###Analysis Plan
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
+Firstly, data was anonymized and those who did not pass the attention check were removed. We ensured that the proportion of participants passing the comprehension check did not vary by condition [pending], as did the authors. 
 
-The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. They regressed post-choice spread on condition (implicit or explicit) and proportion of focal offers chosen and their interaction, controlling for pre-choice spread. They also performed "simple effects" 1-variable linear regressions of post choice spread vs proportion of focal options chosen, evaluation of focal options vs proportion of focal options chosen, and evaluation of opportunity costs vs proportion of focal options chosen.
+The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. They regressed post-choice spread on condition (implicit or explicit) and proportion of focal offers chosen as well as the interaction of the two, controlling for pre-choice spread. They also performed "simple effects" 1-variable linear regressions of (a) post choice spread [Y] VS proportion of focal options chosen [X], (b) evaluation of focal options [Y] VS proportion of focal options chosen [X], and (c) evaluation of opportunity costs [Y] VS proportion of focal options chosen [X]. In (a), prechoice spread was a covariate, but in (b) & (c), only the relevant prechoice evaluation was used as a covariate -- i.e. mean prechoice evaluation of focal options was a covariate for (b), and prechoice evaluation of the opportunity cost was a covariate for (c). 
 
-Differences from Original Study
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+There were no differences between my analysis methods from the original study.
 
 ###(Post Data Collection) Methods Addendum
-... will complete after mturk study
+... will complete after the final mturk study
 
 ###Actual Sample
-sample size, demographics, data exclusions based on rules spelled out in analysis plan
-... will complete after mturk study
+The sample size, demographics, data exclusions followed the rules spelled out in analysis plan.
+... will complete rest after the final mturk study
 
 ###Differences from pre-data collection methods plan
-Any differences from what was described as the original plan, or “none”.
-
 None
 
 #Results
 
-The following are the results from the pilot study:
+###Data preparation
+Data preparation following the analysis plan.
 
 ```{r, include=TRUE}
-d <- read_csv("pilotA-gsheet.csv")
-#d
-fit <- lm(POSTCHOICE_SPREAD ~ PRECHOICE_SPREAD + CONDITION*PROP_FOCAL_OPT_CHOSEN, data=d)
-summary(fit)
+d_pilotA <- read_csv("pilotA/pilotA_raw_anonymized.csv")
+d_pilotA <- d_pilotA %>% 
+
+#fit <- lm(POSTCHOICE_SPREAD ~ PRECHOICE_SPREAD + CONDITION*PROP_FOCAL_OPT_CHOSEN, data=d)
+#summary(fit)
 ```
 
 Because I didn't get the same results, I went ahead and looked at only participants who passed the attention check even though I thought the attention check as written by the researchers was not to my liking (as per an email I sent course staff).
@@ -115,9 +107,6 @@ fit <- lm(POSTCHOICE_SPREAD ~ PROP_FOCAL_OPT_CHOSEN, data=d_explicit)
 ```
 
 ... sections below will be completed after mturk study ...
-
-###Data preparation
-Data preparation following the analysis plan.
 
 ###Confirmatory analysis
 The analyses as specified in the analysis plan
