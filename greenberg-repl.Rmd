@@ -164,7 +164,7 @@ d_pilotB <- qualtrics_data[c(72:90), ]
 
 # make sure attention check passed
 d_pilotA <- d_pilotA[d_pilotA$attention_check=='Somewhat disagree',]
-d_pilotB <- d_pilotB[d_pilotB$attention_check=='Somewhat disagree',]
+d_pilotB <- d_pilotB[d_pilotB$attention_check=='Somewhat disagree',] %>% mutate(ImplicitIs0=(condition==1)) %>% mutate(ExplicitIs0=(condition==-1))
 
 ```
 
@@ -193,21 +193,24 @@ I also implemented, for pilot B data, the remaining auxiliary analysis of the pa
 ```{r}
 d_explicit <- d_pilotB[d_pilotB$condition==1,]
 d_implicit <- d_pilotB[d_pilotB$condition==-1,]
-fit <- lm(postchoice_spread ~ prop_focal_opts_chosen + prechoice_spread, data=d_explicit)
+#fit <- lm(postchoice_spread ~ condition/prop_focal_opts_chosen + prechoice_spread, data=d_pilotB)
+#summary(fit)
+#fit <- lm(postchoice_spread ~ condition/prop_focal_opts_chosen + prechoice_spread, data=d_implicit)
+#summary(fit)
+
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
-fit <- lm(postchoice_spread ~ prop_focal_opts_chosen + prechoice_spread, data=d_implicit)
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
 ```
 We get that prop_focal_opts_chosen predicts postchoice_spread in the implicit and explicit conditions, which does not match the paper in which prop_focal_opts_chosen predicts postchoice_spread only in the explicit condition. However, we see that the prediction is much stronger (2 asterisks) in the explicit condition as opposed to (1 asterisk) in the implicit condition.
 
 ```{r}
-fit <- lm(focal_opts_eval_post ~ prop_focal_opts_chosen + focal_opts_eval_pre, data=d_explicit)
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
-fit <- lm(focal_opts_eval_post ~ prop_focal_opts_chosen + focal_opts_eval_pre, data=d_implicit)
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
 ```
-
-We get that prop_focal_opts_chosen does not predict focal_opts_eval_post in the explicit condition but it does in the implicit condition where as the paper got that prop_focal_opts_chosen predicts focal_opts_eval_post in both conditions. However, in the paper they do find that the p value for prop_focal_opts_chosen is an order of magnitude lower in the implicit condition.
 
 The researchers decided to plot the above relationship focal_opts_eval_post VS prop_focal_opts_chosen so we do the same: 
 
@@ -228,9 +231,9 @@ ggplot(data = d_implicit, aes(x=prop_focal_opts_chosen, y=focal_opts_eval_post))
 This plot similar to the results that the authors got for implicit condition, but it seems like we do not have enough data to cover the full graph. The shaded area is the 95% confidence interval, same as what the authors graphed. 
 
 ```{r}
-fit <- lm(opp_cost_eval_post ~ prop_focal_opts_chosen + opp_cost_eval_pre, data=d_explicit)
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
-fit <- lm(opp_cost_eval_post ~ prop_focal_opts_chosen + opp_cost_eval_pre, data=d_implicit)
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
 summary(fit)
 ```
 
