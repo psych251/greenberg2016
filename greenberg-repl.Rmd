@@ -5,7 +5,7 @@ output:
   html_notebook: default
 ---
 
-### Replication of Study "Opportunity Cost Neglect Attenuates the Effect of Choices on Preferences" by Adam Eric Greenberg & Stephen A. Spiller (200x, Psychological Science)
+### Replication of Study "Opportunity Cost Neglect Attenuates the Effect of Choices on Preferences" by Adam Eric Greenberg & Stephen A. Spiller (2016, Psychological Science)
 
 Gobi Dasu
 gdasu@stanford.edu
@@ -27,23 +27,25 @@ library(stringr)
 
 This paper looked at how making opportunity cost explicit at the time of choice affects evaluations of focal options ("available" options) and the opportunity cost itself. The study entailed surveying 101 Mechanical Turk workers about how much (7 point Likert) they like each of 11 offers, one of which was the "opportunity cost", both before (pre-choice) and after (post-choice) a "choice" intervention. The "choice" intervention involved asking participants in an "implicit" group whether-or-not they would choose to accept a particular offer, while asking participants in an "explicit" group whether they would choose to accept a particular offer or decline the offer and accept the "opportunity cost" offer instead (i.e. in our case a $100 VISA card). 
 
-For the evaluation, the researchers looked at how "spread" of preferences across choices is affected by making opportunity cost explicit. The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. Spread could be negative or positive, and just represented how far away mean focal option evaluation was from the evaluation of opportunity cost. Based on this definition, one may expect that a participant in the explicit condition who selects many focal options explicitly over the $100 VISA card, would in a post-choice survey evaluate their chosen focal options as even further away from the base option than in their pre-choice survey. To test this, the researchers hence controlled for pre-choice spread and used proportion of focal options chosen and condition as well as their interaction to predict post-choice spread. The interaction of condition and proportion of focal options chosen indeed was a significant predictor of post-choice spread (p=0.023). Moreover, they found that when opportunity costs were explicit, postchoice spread increased with the proportion of focal options chosen (p=0.006), but no significant relationship when the condition was implicit. 
+For the evaluation, the researchers looked at how "spread" of preferences across choices is affected by making opportunity cost explicit. The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. Spread could be negative or positive, and just represented how far away mean focal option evaluation was from the evaluation of opportunity cost. Based on this definition, one may expect that a participant in the explicit condition who selects many focal options explicitly over the $100 VISA card, would in a post-choice survey evaluate their chosen focal options as even further away from the base option than in their pre-choice survey. To test this, the researchers hence controlled for pre-choice spread and used proportion of focal options chosen and condition as well as their interaction to predict post-choice spread. The interaction of condition and proportion of focal options chosen indeed was a significant predictor of post-choice spread (p=0.023). This was the key statistic. Moreover, they found that when opportunity costs were explicit, postchoice spread increased with the proportion of focal options chosen (p=0.006), but no significant relationship when the condition was implicit. 
 
-We found ... 
+This was a successful replication. We ran the experiment (N=28) described by the authors and like the authors, found that the interaction of condition and proportion of focal options chosen indeed was a significant predictor of post-choice spread (p=0.036). Moreover, we found that when opportunity costs were explicit, postchoice spread increased with the proportion of focal options chosen (p=0.021), but no significant relationship when the condition was implicit. 
 
 #Methods
 
 Here is a link to the current working experiment: https://stanforduniversity.qualtrics.com/jfe/form/SV_4OWrURMHT8ffmHr
 
 ###Power Analysis
-Based on the first 4 links from https://www.google.com/search?q=effect+size+linear+regression&oq=effect+size+linear+regression&aqs=chrome.0.69i59l2j0l4.4582j0j4&sourceid=chrome&ie=UTF-8 as well as  https://www.statmethods.net/stats/power.html, R^2 (population squared multiple correlation) is the effect size of a multiple linear regression. After contacting the authors, we were told that observed R^2 for the full model was 0.5621. Adjusted R^2 for the full model was 0.5439. Full model test was F(4, 96) = 30.81, p < .001. Given the sample size of 101, the 3 predictors (1 of which was a tested predictor -- choice), and the pre-specified significance level of alpha err prob = 0.05, we found that the post-hoc power of the experiment was 0.99.
+R^2 (population squared multiple correlation) is the effect size of a multiple linear regression. After contacting the authors, we were told that observed R^2 for the full model was 0.5621. Adjusted R^2 for the full model was 0.5439. Full model test was F(4, 96) = 30.81, p < .001. Given the sample size of 101, the 3 predictors (1 of which was a tested predictor -- choice), and the pre-specified significance level of alpha err prob = 0.05, we found that the post-hoc power of the experiment was 0.99.
 
-For the model to detect the effect size of 0.5621, with an alpha err prob = 0.05, we found 10 samples were required to achieve 80% power, 12 samples for 90% power, and 13 samples for 95% power. We used G*Power. 
+For the model to detect the effect size of R^2 = 0.5621 (f^2 = 1.284), with an alpha err prob = 0.05, we found 10 samples were required to achieve 80% power, 12 samples for 90% power, and 13 samples for 95% power. We used G*Power.
 
 ###Planned Sample
-Because of the sufficiently large effect size, we planned to use fewer samples than the experimenters did for sake of cost -- 35 participants. We opted for this very high fidelity replication because the task was not very long (only 5 minutes based on our pilot). Like the original experimenters, we sampled US-only mechanical turk workers (80%+ approval rating) and applied no other preselection rules. We thew out samples that failed the attention check and ensured that the difference in comprehension check performance between the two groups was not significant.
+Because of the sufficiently large effect size, we planned to use fewer samples than the experimenters did for sake of cost -- 35 participants, enough for 99% power. We opted for this very high fidelity replication because the task was not very long (only 5 minutes based on our pilot). Like the original experimenters, we sampled US-only mechanical turk workers (80%+ approval rating) and applied no other preselection rules. We thew out samples that failed the attention check and ensured that the difference in comprehension check performance between the two groups was not significant. The attention check simply a dummy question that asked participants to select "somewhat disagree" and not what they actually felt regarding a question that asked "Do you agree with the following: I generally feel positive about receiving gift cards". The comprehension check tested whether participants knew that they would get a $100 VISA gift card if they did not spend the 50K miles they were originally given in the experiment. 
 
 ###Materials & Procedure
+Quoted text from the paper follows:
+
 > We assessed prechoice evaluations by asking participants to imagine that they were eligible to receive different independent offers as part of a marketing promotion (e.g., “2 nights in a luxury hotel”). Participants used a 7-point scale (1 = not at all, 7 = very much) to rate how much they would like each of 11 such offers. One of these (a $100 Visa gift card) would be the option that represented the opportunity cost at the time of choice and was either the first offer or the last offer to be evaluated; order was counterbalanced across participants.
 After completing the prechoice evaluations, participants were asked to imagine that they had accumulated 50,000 airline miles and that their miles would expire soon. If they did not spend their miles before the miles expired, the airline would send them a $100 Visa gift card. Participants decided whether to spend their airline miles on each of 10 focal offers (e.g., “Spend my miles on 2 nights in a luxury hotel”).2 Each option was presented as an independent decision, and participants were instructed to treat each decision as though it were their only opportunity to spend their miles before they expired. As a result, the 10 focal offers competed not with one another but only with the opportunity cost (i.e., the $100 Visa gift card).
 Participants assigned to the implicit condition made choices between accepting the focal options (e.g., “Spend my miles on 2 nights in a luxury hotel”) or rejecting the focal options (e.g., “Do not spend my miles on 2 nights in a luxury hotel”); this frame made opportunity costs implicit. Participants assigned to the explicit condition made choices between accepting the focal options or rejecting the focal options in favor of the explicit opportunity cost instead (e.g., “Do not spend my miles on 2 nights in a luxury hotel and take the $100 Visa gift card instead”; Frederick et al., 2009). The two frames are formally equivalent.
@@ -53,14 +55,15 @@ Finally, participants reported what they thought would happen to their miles if 
 Our Materials and Procedure were identical to the authors', quoted above.
 
 ###Analysis Plan
-Firstly, data was anonymized and those who did not pass the attention check were removed. We ensured that the proportion of participants passing the comprehension check did not vary by condition [pending], as did the authors. 
+Firstly, data was anonymized and those who did not pass the attention check were removed. We ensured that the proportion of participants passing the comprehension check did not vary by condition, as did the authors. 
 
-The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. They regressed post-choice spread on condition (implicit or explicit) and proportion of focal offers chosen as well as the interaction of the two, controlling for pre-choice spread. They also performed "simple effects" 1-variable linear regressions of (a) post choice spread [Y] VS proportion of focal options chosen [X], (b) evaluation of focal options [Y] VS proportion of focal options chosen [X], and (c) evaluation of opportunity costs [Y] VS proportion of focal options chosen [X]. In (a), prechoice spread was a covariate, but in (b) & (c), only the relevant prechoice evaluation was used as a covariate -- i.e. mean prechoice evaluation of focal options was a covariate for (b), and prechoice evaluation of the opportunity cost was a covariate for (c). 
+The researchers calculated the spread of pre-choice and post-choice responses by taking the mean of the focal option evaluations minus the base option (opportunity cost) evaluation. They regressed post-choice spread on condition (implicit or explicit) and proportion of focal offers chosen as well as the interaction of the two, controlling for pre-choice spread. They also performed "simple effects" linear regressions of (a) post choice spread [Y] VS proportion of focal options chosen [X], (b) evaluation of focal options [Y] VS proportion of focal options chosen [X], and (c) evaluation of opportunity costs [Y] VS proportion of focal options chosen [X]. In (a), prechoice spread was a covariate, but in (b) & (c), only the relevant prechoice evaluation was used as a covariate. Specifically, mean prechoice evaluation of focal options was a covariate for (b), and prechoice evaluation of the opportunity cost was a covariate for (c). The exact simple effects regression formulae were not obvious from the paper, so we consulted the authors who provided us the exact implementation, which we use below.
 
-There were no differences between my analysis methods from the original study.
+###Differences from Original Study
+There were no differences between my analysis methods and those of the original study.
 
-###(Post Data Collection) Methods Addendum
-... will complete after the final mturk study
+#(Post Data Collection) Methods Addendum
+Note, 28 of the 35 recruited participants ended up passing the attention check the authors designed but this number of participants was still a sufficient sample size for achieving 99% power. 15 participants were Male and 13 particiants were female. They ranged in age from 20 to 47.
 
 ###Actual Sample
 The sample size, demographics, data exclusions followed the rules spelled out in analysis plan.
@@ -72,12 +75,12 @@ None
 #Results
 
 ###Data preparation
-Data preparation following the analysis plan.
+We performed data preparation following the analysis plan. Code has been hidden here for aesthetic purposes, but you can view the code if you open greenberg-repl.Rmd from https://github.com/psych251/greenberg2016 using R Studio. 
 
-```{r, include=TRUE}
+```{r, echo=FALSE}
 
-# note qualtrics download wasn't ideal so had to do Find&Delete of ": Very Much" / ": Not at all" string annotations that were cluttering numerical data
-qualtrics_data <- read_csv("qualtrics_pilotAB.csv") %>% 
+# NOTE! qualtrics download wasn't ideal so had to do Find&Delete of ": Very Much" / ": Not at all" string annotations that were cluttering numerical data
+qualtrics_data <- read_csv("final/final_anonymized.csv") %>% 
   rename(consent=Q1) %>%
   rename(prechoice_100VISA_1=Q4) %>% # prechoice
   rename(prechoice_focal_1st=Q7) %>%
@@ -99,6 +102,28 @@ qualtrics_data <- read_csv("qualtrics_pilotAB.csv") %>%
   rename(attention_check=Q66) %>%
   rename(sex=Q67) %>%
   rename(age=Q68)
+original_data <- read_csv("GreenbergMaterials/GreenbergSpillerExp1-ourstyle.csv") %>%
+  rename(consent=Q1) %>%
+  rename(prechoice_100VISA_1=Q4) %>% # prechoice
+  rename(prechoice_focal_1st=Q7) %>%
+  rename(prechoice_focal_last=Q16) %>%
+  rename(prechoice_100VISA_2=Q69) %>% 
+  rename(choice_explicit_1st=Q18) %>% # choice explicit
+  rename(choice_explicit_last=Q27) %>% 
+  rename(postchoice_explicit_100VISA_1=Q41) %>%
+  rename(postchoice_explicit_focal_1st=Q42) %>%
+  rename(postchoice_explicit_focal_last=Q51) %>%
+  #rename(postchoice_explicit_100VISA_2=Q70) %>%
+  rename(choice_implicit_1st=Q30) %>% # choice implicit
+  rename(choice_implicit_last=Q39) %>% 
+  rename(postchoice_implicit_100VISA_1=Q53) %>%
+  rename(postchoice_implicit_focal_1st=Q54) %>%
+  rename(postchoice_implict_focal_last=Q63) %>%
+  #rename(postchoice_implicit_100VISA_2=Q71) %>%
+  rename(comprehension_check=Q65) %>%
+  rename(attention_check=Q66) %>%
+  rename(sex=Q67) %>%
+  rename(age=Q68)
 
 # remove 1st 2 rows
 qualtrics_data <- qualtrics_data[-c(1,2),]
@@ -107,10 +132,19 @@ qualtrics_data <- qualtrics_data[-c(1,2),]
 qualtrics_data <- qualtrics_data %>% 
   mutate(condition = ifelse(is.na(qualtrics_data$choice_explicit_1st), -1, 1)) %>%
   mutate(allchoices = do.call(paste0, qualtrics_data[c(31:40, 53:62)])) 
-qualtrics_data$prop_focal_opts_chosen <- (10 - str_count(qualtrics_data$allchoices, "Not spend"))/10
+original_data <- original_data %>% 
+  mutate(condition = ifelse(condition=="No OC", -1, 1)) %>%
+  mutate(allchoices = do.call(paste0, original_data[c(34:43, 45:54)])) 
+
+
+qualtrics_data$prop_focal_chosen <- (10 - str_count(qualtrics_data$allchoices, "Not spend"))/10
+original_data$prop_focal_chosen <- (10 - str_count(original_data$allchoices, "2"))/10
 
 qualtrics_data[, c(63:74)] <- sapply(qualtrics_data[, c(63:74)], as.numeric)
 qualtrics_data[, c(41:52)] <- sapply(qualtrics_data[, c(41:52)], as.numeric)
+original_data[, c(58:69)] <- sapply(original_data[, c(58:69)], as.numeric)
+original_data[, c(71:82)] <- sapply(original_data[, c(71:82)], as.numeric)
+
 qualtrics_data$postchoice_spread <- ifelse(
   qualtrics_data$condition==-1, 
   rowMeans(subset(qualtrics_data, select = c(64:73))) - 
@@ -126,11 +160,27 @@ qualtrics_data$postchoice_spread <- ifelse(
       qualtrics_data$postchoice_explicit_100VISA_1
     )
 )
+original_data$postchoice_spread <- ifelse(
+  is.na(original_data[59]),
+  rowMeans(subset(original_data, select = c(72:81))),
+  rowMeans(subset(original_data, select = c(59:68)))
+) - ifelse(
+  is.na(original_data$postchoice_explicit_100VISA_1), # explicit/implicit NOT good name here at all
+  original_data$postchoice_implicit_100VISA_1, # just referring to the counterbalanced 1st or 2nd
+  original_data$postchoice_explicit_100VISA_1 # value of the evaluation of the OC (VISA card) 
+)
+
 qualtrics_data$focal_opts_eval_post = ifelse(
   qualtrics_data$condition==-1, 
   rowMeans(subset(qualtrics_data, select = c(64:73))),
   rowMeans(subset(qualtrics_data, select = c(42:51)))
 )
+original_data$focal_opts_eval_post = ifelse(
+  is.na(original_data[59]), 
+  rowMeans(subset(original_data, select = c(72:81))),
+  rowMeans(subset(original_data, select = c(59:68)))
+)
+
 qualtrics_data$opp_cost_eval_post = ifelse(
   qualtrics_data$condition==-1, 
   ifelse(
@@ -144,45 +194,275 @@ qualtrics_data$opp_cost_eval_post = ifelse(
     qualtrics_data$postchoice_explicit_100VISA_1
   )
 )
+original_data$opp_cost_eval_post = ifelse(
+  is.na(original_data$postchoice_explicit_100VISA_1), # explicit/implicit NOT good name here at all
+  original_data$postchoice_implicit_100VISA_1, # just referring to the counterbalanced 1st or 2nd
+  original_data$postchoice_explicit_100VISA_1 # value of the evaluation of the OC (VISA card) 
+)
 
 qualtrics_data[, c(19:30)] <- sapply(qualtrics_data[, c(19:30)], as.numeric)
+original_data[, c(11:20)] <- sapply(original_data[, c(11:20)], as.numeric)
+
 qualtrics_data$prechoice_spread <- rowMeans(subset(qualtrics_data, select = c(20:29))) - 
   ifelse(
     is.na(qualtrics_data$prechoice_100VISA_1),  
     qualtrics_data$prechoice_100VISA_2,
     qualtrics_data$prechoice_100VISA_1
   )
+original_data$prechoice_spread <- rowMeans(subset(original_data, select = c(11:20))) - 
+  ifelse(
+    is.na(original_data$prechoice_100VISA_1),  
+    original_data$prechoice_100VISA_2,
+    original_data$prechoice_100VISA_1
+  )
+
 qualtrics_data$focal_opts_eval_pre <- rowMeans(subset(qualtrics_data, select = c(20:29)))
+original_data$focal_opts_eval_pre <- rowMeans(subset(original_data, select = c(11:20)))
+
 qualtrics_data$opp_cost_eval_pre <- ifelse(
   is.na(qualtrics_data$prechoice_100VISA_1),  
   qualtrics_data$prechoice_100VISA_2,
   qualtrics_data$prechoice_100VISA_1
 )
+original_data$opp_cost_eval_pre <- ifelse(
+  is.na(original_data$prechoice_100VISA_1),  
+  original_data$prechoice_100VISA_2,
+  original_data$prechoice_100VISA_1
+)
 
 d_pilotA <- qualtrics_data[c(7:9,15:47), ] 
 d_pilotB <- qualtrics_data[c(72:90), ]
+d_final <- qualtrics_data[c(94:128), ]
+d_original <- original_data
 
 # make sure attention check passed
 d_pilotA <- d_pilotA[d_pilotA$attention_check=='Somewhat disagree',]
 d_pilotB <- d_pilotB[d_pilotB$attention_check=='Somewhat disagree',] %>% mutate(ImplicitIs0=(condition==1)) %>% mutate(ExplicitIs0=(condition==-1))
-
+d_final <- d_final[d_final$attention_check=='Somewhat disagree',] %>% mutate(ImplicitIs0=(condition==1)) %>% mutate(ExplicitIs0=(condition==-1))
+d_original <- d_original[d_original$attention_check==1,] %>% mutate(ImplicitIs0=(condition==1)) %>% mutate(ExplicitIs0=(condition==-1))
 ```
+
 
 ###Confirmatory analysis
-The analyses as specified in the analysis plan
+We procede to present the analyses as specified in the analysis plan. 
 
-#### PILOT A
+Before doing a "replication", we did a "reproduction" and two pilots. For the reproduction, we used open data from the original experiment to perform all analyses, and achieved the exact same results as the authors. For the first pilot we used data from friends and peers. For the second pilot we ran a small scale study on mechanical turk. The analyses for all 3 of these preparatory measures are presented in the Appendix. 
+
 ```{r}
-fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_opts_chosen, data=d_pilotA)
+fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_chosen, data=d_final)
 summary(fit)
 ```
-Now this is very interesting. Like the authors, here I see that PRECHOICE_SPREAD has a p < .001.
-Like the authors, I see that PROP_FOCAL_OPT_CHOSEN is significant (their_p = .021, our_p=.044).
-What is strange is that our CONDITION and PROP_FOCAL_OPT_CHOSEN:CONDITION p values are exactly 10 times larger than the authors' p=.018 and p=.023. This is quite perplexing. I went through and could not catch any error in my implementation -- I have implemented this pipeline in both excel and R independently, for instance to ensure these analyses are valid.
 
-#### PILOT B
+We successfully replicated the finding that the condition:prop_focal_chosen interaction is a significant predictor (p=0.036) of postchoice_spread. 
+
+I also implemented, for final data, the remaining auxiliary analysis of the paper, such as simple effects models and plots of simple effects models. The following regression formulae were explicitly provided by the authors.
+
 ```{r}
-fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_opts_chosen, data=d_pilotB)
+d_explicit <- d_final[d_final$condition==1,]
+d_implicit <- d_final[d_final$condition==-1,]
+
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_final) # for IMPLICIT SLOPE
+summary(fit)
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_final) # for EXPLICIT SLOPE
+summary(fit)
+```
+We found that prop_focal_chosen predicts postchoice_spread in the explicit (p=0.021) but not implicit (p=0.943) conditions, which matches the paper in which prop_focal_chosen predicts postchoice_spread only in the explicit condition. 
+
+```{r}
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_final) # IMPLICIT SLOPE
+summary(fit)
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_final) # EXPLICIT SLOPE
+summary(fit)
+```
+We found that prop_focal_chosen predicts evaluation of focal options in neither condition, which does not match the paper in which prop_focal_chosen predicts postchoice_spread in both conditions. Note, it seems like focal_opts_eval_pre carries all the predictive power in this regression.
+
+The researchers decided to plot the above relationship focal_opts_eval_post VS prop_focal_chosen so we do the same.
+
+```{r, echo=FALSE}
+tofit <- data.frame(AvgChoice=numeric(), LBase=numeric(), LBaseLwr=numeric(), LBaseUpr=numeric())
+for (i in 0:10) {
+  tofit[nrow(tofit) + 1,] = c(i*0.1, NULL, NULL, NULL)
+}
+tofit_implicit <- tofit %>% mutate(LBase=0.4728*AvgChoice + 0.4515)  # from regression above
+
+# THIS STYLE DID NOT WORK -- STUCK TO MY SIMPLE EFFECTS PLOTS
+```
+
+For the Explicit condition: 
+
+```{r, , echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+This plot actually looks quite similar to the results that the authors got for explicit condition. The shaded area is the 95% confidence interval, same as what the authors graphed. 
+
+And for the implicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+This plot similar to the results that the authors got for implicit condition. The shaded area is the 95% confidence interval, same as what the authors graphed. 
+
+```{r}
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_final) # IMPLICIT SLOPE
+summary(fit)
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_final) # EXPLICIT SLOPE
+summary(fit)
+```
+
+We find that prop_focal_chosen predicts opp_cost_eval_post for the explicit slope condition but not for the implicit condition which is the opposite of what the researchers in the paper got. Note that the prechoice evaluation is still the main variable of great predictive power.
+
+The researchers decided to plot the above relationship opp_cost_eval_post VS prop_focal_chosen so we do the same: 
+
+For the Explicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+Similar to the authors, we also get a downward slope for the explicit condition for the graph of Eval of Opportunity Cost vs Prop of Focal Options Chosen. 
+
+For the Implicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+Like the authors, we get an upward slope for the plot of Eval of Opportunity Cost vs. Proportion of Focal Options Chosen. However the slopes are not the same between the researchers' findings and ours.  
+
+It is quite interesting how we get similar plots to the authors but don't always agree on which variables are significant predictors in the simple effects models. This may because our prechoice evaluations carry substantial predictive power.
+
+###Exploratory analyses
+
+We wanted to visualize the postchoice_spread VS prop_focal_chosen plot for each condition, which the authors did not present. Here are those plots for the data we collected:
+
+Explicit:
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=postchoice_spread)) + geom_point() + xlim(c(0,1.0)) + ylim(c(-6,6)) + ylab("Postchoice Spread") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+Implicit:
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=postchoice_spread)) + geom_point() + xlim(c(0,1.0)) + ylim(c(-6,6)) + ylab("Postchoice Spread") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+And here are those plots for the original data:
+
+So we can visualize clearly here how much making opportunity explicit affects spread of the evaluation of options (i.e. spread away from evaluation of the opportunity cost). In the explicit condition, we witness a rise in spreads as a participant chooses more focal options, where as in the implicit condition we do not. 
+
+We saw in some of the simple effects models (for predicting "evaluation of focal options" and "evaluation of opportunity cost"), that the relevant prechoice evaluation carried most of the predictive power. For this reason, we decided to look at the plot of the simple effect [Y] variable VS the relevant prechoice control variable as the [X] variable to verify indeed that the postchoice was trailing almost exactly the prechoice, but a bit less so for the original data.
+
+Plot of evaluation of focal options VS prechoice evaluation of focal options
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=postchoice_spread)) + geom_point() + xlim(c(0,1.0)) + ylim(c(-6,6)) + ylab("Postchoice Spread") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+#Discussion
+
+###Summary of Replication Attempt
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+So far from Pilot A, the result is partially replicated.
+So far from Pilot B, the replication is mostly a failure with some findings partially replicated.
+
+###Commentary
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+#Appendix
+
+##Reproduction from Open Data provided by Researchers
+
+```{r}
+fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_chosen, data=d_original)
+summary(fit)
+```
+
+With original data, we successfully reproduced the finding that the condition:prop_focal_chosen interaction is a significant predictor of postchoice_spread. The p-values and coefficients are exactly the same as what the researchers found in the paper.
+
+We also implemented, for original data, the remaining auxiliary analysis of the paper, such as simple effects models and plots of simple effects models. Please note, ImplicitIs0 is an encoding of the condition variable that the authors used, where the implicit condition was encoded as a 0 and the explicit as a 1. ExplicitIs0 is an encoding of the condition variable that the authors used, where the explicit condition was encoded as a 0 and the implicit as a 1.
+
+```{r}
+d_explicit <- d_original[d_original$condition==1,]
+d_implicit <- d_original[d_original$condition==-1,]
+
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # IMPLICIT SLOPE
+summary(fit)
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # EXPLICIT SLOPE
+summary(fit)
+```
+
+We get that prop_focal_chosen predicts postchoice_spread in the explicit but not implicit conditions, which matches the paper in which prop_focal_chosen predicts postchoice_spread only in the explicit condition. Moreover, we find the exact same p-values and coefficients as the authors.
+
+```{r}
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # IMPLICIT SLOPE
+summary(fit)
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # EXPLICIT SLOPE
+summary(fit)
+```
+Again, we find the exact same significance relationship, p-values, and coefficients as the authors.
+
+The researchers decided to plot the above relationship focal_opts_eval_post VS prop_focal_chosen so we do the same.
+
+For the Explicit condition: 
+
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+This is the same graph as what the authors got.
+
+And for the implicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+This is the same graph as what the authors got.
+
+We also look at opportunity cost evaluation VS proportion of focal options chosen, as the authors do.
+
+```{r}
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # IMPLICIT SLOPE because when ImplicitIs0 is 1 then 
+summary(fit)
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_original) # to plot: coeff on prop_focal_chosen # EXPLICIT SLOPE
+summary(fit)
+```
+
+Again, we find the exact same significance relationship, p-values, and coefficients as the authors.
+
+The researchers decided to plot the above relationship opp_cost_eval_post VS prop_focal_chosen so we do the same: 
+
+For the Explicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+Similar to the authors, we also get a downward slope for the explicit condition for the graph of Eval of Opportunity Cost vs Prop of Focal Options Chosen. 
+
+For the Implicit condition:
+
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```
+
+Like the authors, we get an upward slope for the plot of Eval of Opportunity Cost vs. Proportion of Focal Options Chosen. 
+
+So the original data matches up with the paper. The "reproduction" was a success.
+
+##PILOT A
+```{r}
+fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_chosen, data=d_pilotA)
+summary(fit)
+```
+Now this is very interesting. Like the authors, here we see that PRECHOICE_SPREAD has a p < .001.
+Like the authors, we see that PROP_FOCAL_OPT_CHOSEN is significant (their_p = .021, our_p=.044).
+What is strange is that our CONDITION and PROP_FOCAL_OPT_CHOSEN:CONDITION p values are exactly 10 times larger than the authors' p=.018 and p=.023. This is quite perplexing. We went through and could not catch any error in my implementation -- we have implemented this pipeline in both excel and R independently, for instance, to ensure these analyses are valid.
+
+## PILOT B
+```{r}
+fit <- lm(postchoice_spread ~ prechoice_spread + condition*prop_focal_chosen, data=d_pilotB)
 summary(fit)
 ```
 
@@ -193,85 +473,68 @@ I also implemented, for pilot B data, the remaining auxiliary analysis of the pa
 ```{r}
 d_explicit <- d_pilotB[d_pilotB$condition==1,]
 d_implicit <- d_pilotB[d_pilotB$condition==-1,]
-#fit <- lm(postchoice_spread ~ condition/prop_focal_opts_chosen + prechoice_spread, data=d_pilotB)
-#summary(fit)
-#fit <- lm(postchoice_spread ~ condition/prop_focal_opts_chosen + prechoice_spread, data=d_implicit)
-#summary(fit)
 
-fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_pilotB) 
 summary(fit)
-fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(postchoice_spread ~ prechoice_spread + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_pilotB)
 summary(fit)
 ```
-We get that prop_focal_opts_chosen predicts postchoice_spread in the implicit and explicit conditions, which does not match the paper in which prop_focal_opts_chosen predicts postchoice_spread only in the explicit condition. However, we see that the prediction is much stronger (2 asterisks) in the explicit condition as opposed to (1 asterisk) in the implicit condition.
+We get that prop_focal_chosen predicts postchoice_spread in the implicit and explicit conditions, which does not match the paper in which prop_focal_chosen predicts postchoice_spread only in the explicit condition.
 
 ```{r}
-fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_pilotB)
 summary(fit)
-fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(focal_opts_eval_post ~ focal_opts_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_pilotB)
 summary(fit)
 ```
 
-The researchers decided to plot the above relationship focal_opts_eval_post VS prop_focal_opts_chosen so we do the same: 
+We find that prop_focal_chosen predicts focal_opts_eval_post for the implicit condition but not for the explicit condition which contradicts the authors' findings that prop_focal_chosen predicts focal_opts_eval_post in both conditions.
+
+The researchers decided to plot the above relationship focal_opts_eval_post VS prop_focal_chosen so we do the same: 
 
 For the Explicit condition: 
 
-```{r}
-ggplot(data = d_explicit, aes(x=prop_focal_opts_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
 ```
 
 This plot actually looks quite similar to the results that the authors got for explicit condition. The shaded area is the 95% confidence interval, same as what the authors graphed. 
 
 And for the implicit condition:
 
-```{r}
-ggplot(data = d_implicit, aes(x=prop_focal_opts_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=focal_opts_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Focal Options") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
 ```
 
 This plot similar to the results that the authors got for implicit condition, but it seems like we do not have enough data to cover the full graph. The shaded area is the 95% confidence interval, same as what the authors graphed. 
 
 ```{r}
-fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_opts_chosen + ImplicitIs0 + prop_focal_opts_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ImplicitIs0 + prop_focal_chosen:ImplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_chosen
 summary(fit)
-fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_opts_chosen + ExplicitIs0 + prop_focal_opts_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_opts_chosen
+fit <- lm(opp_cost_eval_post ~ opp_cost_eval_pre + prop_focal_chosen + ExplicitIs0 + prop_focal_chosen:ExplicitIs0, data=d_pilotB) # to plot: coeff on prop_focal_chosen
 summary(fit)
 ```
 
-We find that prop_focal_opts_chosen predicts opp_cost_eval_post for the explicit condition but not for the implicit condition which is the opposite of what the researchers in the paper got.
+We find that prop_focal_chosen predicts opp_cost_eval_post for the explicit condition but not for the implicit condition which is the opposite of what the researchers in the paper got.
 
-The researchers decided to plot the above relationship opp_cost_eval_post VS prop_focal_opts_chosen so we do the same: 
+The researchers decided to plot the above relationship opp_cost_eval_post VS prop_focal_chosen so we do the same: 
 
 For the Explicit condition:
 
-```{r}
-ggplot(data = d_explicit, aes(x=prop_focal_opts_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```{r, echo=FALSE}
+ggplot(data = d_explicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
 ```
 
 Similar to the authors, we also get a downward slope for the explicit condition for the graph of Eval of Opportunity Cost vs Prop of Focal Options Chosen. 
 
 For the Implicit condition:
 
-```{r}
-ggplot(data = d_implicit, aes(x=prop_focal_opts_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
+```{r, echo=FALSE}
+ggplot(data = d_implicit, aes(x=prop_focal_chosen, y=opp_cost_eval_post)) + geom_point() + xlim(c(0,1.0)) + ylim(c(3,7)) + ylab("Evaluation of Opportunity Cost") + xlab("Proportion of Focal Options Chosen") + geom_smooth(method="lm") 
 ```
 
 Like the authors, we get an upward slope for the plot of Eval of Opportunity Cost vs. Proportion of Focal Options Chosen. No confidence interval appears however.
 
-It is quite interesting how we get similar plots to the authors but don't always agree on which variables are significant predictors of our target variables.  
+It is quite interesting how we get similar slopes as the authors but don't always agree on the slope values or which variables are significant predictors of our target variables.  
 
-... sections below will be completed after final mturk study ...
-
-###Exploratory analyses
-... may add after final mturk study
-
-#Discussion
-
-#Summary of Replication Attempt
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
-
-So far from Pilot A, the result is partially replicated.
-So far from Pilot B, the replication is mostly a failure with some findings partially replicated.
-
-#Commentary
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
-
+The authors caught one important bug in our pilot B implementation when we showed it to them for feedback after the pilot was run. They said the choice-intervention questions should have been separate screens. This may have indeed caused our replication failure for pilot B because our final replication was a success. 
